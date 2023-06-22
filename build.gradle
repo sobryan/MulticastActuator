@@ -1,0 +1,29 @@
+plugins {
+	id 'java-library'
+}
+
+group = 'com.example'
+version = '0.1'
+
+java {
+	sourceCompatibility = '1.8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.springframework.boot:spring-boot-starter-actuator'
+
+	    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.assertj:assertj-core'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
